@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace szemétgeci
+namespace Nasa
 {
    public class Keres
     {
@@ -52,9 +52,9 @@ namespace szemétgeci
             List<Keres> lista = new List<Keres>();
             for (int i = 0; i < s.Length; i++)
             {
-                string [] anyyád=s[i].Split("*");
-                string[] geci = anyyád[3].Split(" ");
-                Keres keres = new Keres(anyyád[0],anyyád[1],anyyád[2],geci[0],geci[1]);
+                string [] a=s[i].Split("*");
+                string[] b = a[3].Split(" ");
+                Keres keres = new Keres(a[0],a[1],a[2],b[0],b[1]);
                 lista.Add(keres);
             }
             Console.WriteLine("5. feladat: Kérések száma: {0}", lista.Count);
@@ -75,24 +75,24 @@ namespace szemétgeci
             }
             percentage =Math.Round( a/lista.Count*100,2);
             Console.WriteLine("8. Feladat: Domain-es kérések: {0}%", percentage);
-            HashSet<string> fasz = new HashSet<string>(); 
+            HashSet<string> d = new HashSet<string>(); 
             foreach (var item in lista)
             {
-                fasz.Add(item.HttpKod);
+                d.Add(item.HttpKod);
             }
-            int nigger = 0;
+            int c = 0;
             Console.WriteLine("9. feladat: Statisztika");
-            foreach (var item in fasz)
+            foreach (var item in d)
             {
-                nigger = 0;
-                foreach (var geci in lista)
+                c = 0;
+                foreach (var b in lista)
                 {
-                    if (geci.HttpKod == item)
+                    if (b.HttpKod == item)
                     {
-                        nigger++;
+                        c++;
                     }
                 }
-                Console.WriteLine("     {0}: {1} db",item,nigger);
+                Console.WriteLine("     {0}: {1} db",item,c);
             }
         }
     }
